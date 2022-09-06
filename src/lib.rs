@@ -26,8 +26,12 @@ pub fn test_2(index: usize) {
 
 fn spawn(index: usize) {
     let script = include_str!("spawn.js");
+    let header = format!(
+        "importScripts('{}/test_wasm_thread.js');\n",
+        web_sys::window().unwrap().location().origin().unwrap()
+    );
 
-    let sequence = Array::of1(&JsValue::from(script));
+    let sequence = Array::of2(&JsValue::from(header.as_str()), &JsValue::from(script));
     let mut property = BlobPropertyBag::new();
     property.type_("text/javascript");
     let blob = Blob::new_with_str_sequence_and_options(&sequence, &property).unwrap();

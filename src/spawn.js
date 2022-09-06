@@ -1,5 +1,3 @@
-importScripts('http://localhost:8000/test_wasm_thread.js');
-
 self.onmessage = async event => {
     let [module, memory, index] = event.data;
 
