@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Test</title>
+		<script src="test_wasm_thread.js"></script>
+		<script>
+			async function run() {
+				let wasm = await wasm_bindgen();
+				wasm.test_1();
+			}
+
+			run()
+		</script>
+	</head>
+	<body>
+	</body>
+</html>
